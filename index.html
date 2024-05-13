@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Activity 3</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="wts.css">
+  <link rel="icon" type="image/x-icon" href="Logo_last.png">
+</head>
+<body>
+  <audio id="cheers">
+    <source src="cheers.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="points" src="Points.mp3"></audio>
+  <audio id="fail" src="fail.mp3"></audio>
+  <div class="header" style="width:100%; box-shadow:5px 5px 10px rgb(0, 0, 0); padding-bottom:10px;">
+    <img src="Logo.png" width="5%" style="float:left; margin-top:25px;" class="img-responsive">
+    <span> <img src="header.png" width="30%" height="100px" class="img-responsive"></span>
+</div>
+<br>
+<br>
+  <center>
+  <h1 id="heading">Verbs</h1>
+
+
+  <div class="container">
+
+    <button onclick="abc(1)"  class="smallbtn">Q1</button>
+    <button onclick="abc(2)" class="smallbtn">Q2</button>
+    <button onclick="abc(3)"  class="smallbtn">Q3</button>
+    <button onclick="abc(4)"  class="smallbtn">Q4</button>
+    <button onclick="abc(5)" class="smallbtn">Q5</button>
+    <button onclick="abc(6)" class="smallbtn">Q6</button>
+    <button onclick="abc(7)" class="smallbtn">Q7</button>
+    <button onclick="abc(8)" class="smallbtn">Q8</button>
+    <button onclick="abc(9)" class="smallbtn">Q9</button> 
+    <button onclick="abc(10)" class="smallbtn">Q10</button>
+    <button onclick="abc(11)" class="smallbtn">Q11</button>
+    <button onclick="abc(12)" class="smallbtn">Q12</button>
+    <button onclick="abc(13)" class="smallbtn">Q13</button>
+    <button onclick="abc(14)" class="smallbtn">Q14</button>
+    <button onclick="abc(15)" class="smallbtn">Q15</button>
+    <button onclick="abc(16)" class="smallbtn">Q16</button>
+    <button onclick="abc(17)" class="smallbtn">Q17</button>
+    <button onclick="abc(18)" class="smallbtn">Q18</button>
+    <button onclick="abc(19)" class="smallbtn">Q19</button> 
+    <button onclick="abc(20)" class="smallbtn">Q20</button>
+    <button onclick="abc(21)" class="smallbtn">Q21</button>
+    <button onclick="abc(22)" class="smallbtn">Q22</button>
+    <button onclick="abc(23)" class="smallbtn">Q23</button>
+    <button onclick="abc(24)" class="smallbtn">Q24</button>
+    <button onclick="abc(25)" class="smallbtn">Q25</button>
+    
+  
+  
+  </div>
+
+  <div class="maindiv container">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="font-size:25px; color:black; font-family:Georgia;">
+      <p id="numdiv"></p>
+      </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 imgdiv">
+      <img id ="math_ques" src="MAth Question.jpg" width="100%">
+    </div>
+  <div id="questiondiv" class="col-lg-7 col-md-7 col-sm-7 col-xs-8">
+    <div id="question"></div>
+    <br>
+  <div class="menu"><br><ul id="options"></ul></div>
+  <button id="subbtn" class="btn btn-success" onclick="checkAnswer()">Submit Answer</button>
+  <button id="nextbtn" class="btn btn-primary" onclick="newques()" style="display:none">Next</button>
+  <p id="result"></p>
+  </div>
+</div>
+  <script>
+    // Define an array of questions and their options 
+    var questions = [
+    
+    {
+      questionNo: "Q1.",
+      question: " Select the linking verb and the subject complement <br> The famous painter Picasso was a pioneering artist of the 20th century.",
+      options: ["Linking verb: was; Predicate noun: a pioneering artist of the 20th century",
+                "Linking verb: painter; Predicate noun: Picasso",
+                "Linking verb: was; Predicate adjective: famous",
+                "Linking verb: pioneering; Predicate noun: artist"],
+      answer: "Linking verb: was; Predicate noun: a pioneering artist of the 20th century"
+    },
+
+    {
+      questionNo: "Q2.",
+      question: " Select the linking verb and the predicate noun or predicate adjective. <br> After the tough hike, the climbers felt exhausted but triumphant.",
+      options: ["Linking verb: felt; Predicate adjective: exhausted but triumphant",
+                "Linking verb: hike; Predicate adjective: tough",
+                "Linking verb: exhausted; Predicate noun: climbers",
+                "Linking verb: climbers; Predicate adjective: tough"],
+                
+      answer: "Linking verb: felt; Predicate adjective: exhausted but triumphant"
+    },
+
+    {
+      questionNo: "Q3.",
+      question: " Select the linking verb and the predicate noun or predicate adjective. <br> My best friend has become a successful entrepreneur.",
+      options: ["Linking verb: has become; Predicate noun: a successful entrepreneur",
+                "Linking verb: friend; Predicate adjective: best",
+                "Linking verb: has; Predicate noun: entrepreneur",
+                "Linking verb: become; Predicate adjective: successful"],
+      answer: "Linking verb: has become; Predicate noun: a successful entrepreneur"
+    },
+
+    
+    {
+      questionNo: "Q4.",
+      question: " Select the linking verb and the predicate noun or predicate adjective. <br> Her new hairstyle seems very flattering.",
+      options: ["Linking verb: seems; Predicate adjective: flattering",
+                "Linking verb: hairstyle; Predicate noun: new",
+                "Linking verb: new; Predicate adjective: flattering",
+                "Linking verb: very; Predicate adjective: flattering"],
+      answer: "Linking verb: seems; Predicate adjective: flattering"
+    },
+
+    {
+      questionNo: "Q5.",
+      question: " In the sentence below, what kind of verb is “smells”? <br> Lunch smells burnt.",
+      options: ["Linking verb", "Sensory verb acting as linking verb","Both A and B","Action verb"],
+      answer: "Both A and B"
+    },
+
+
+
+    {
+      questionNo: "Q6.",
+      question: " The plant grew tall. In the above sentence “grew” is a linking verb. ",
+      options: ["NO","YES"],
+      answer: "YES"
+    },
+
+   
+
+      {
+        questionNo: "Q7.",
+        question: " Select the linking verb and the predicate noun or predicate adjective. <br> The weather today feels incredibly hot and humid.",
+        options: ["Linking verb: feels; Predicate adjective: incredibly hot and humid",
+                  "Linking verb: weather; Predicate adjective: today",
+                  "Linking verb: today; Predicate noun: weather",
+                  "Linking verb: hot; Predicate adjective: humid"],
+        answer: "Linking verb: feels; Predicate adjective: incredibly hot and humid"
+      },
+
+      {
+        questionNo: "Q8.",
+        question: " Her new novel became an instant bestseller. What is the subject in the sentence in the above statement?",
+        options: ["Novel", "New Novel","Her New Novel","New"],
+        answer: "Her New Novel"
+      },
+
+      {
+        questionNo: "Q9.",
+        question: " Select the linking verb and the predicate noun or predicate adjective. <br> Those flowers smell absolutely divine.",
+        options: ["Linking verb: smell; Predicate adjective:divine",
+                  "Linking verb: flowers; Predicate adjective:those",
+                  "Linking verb: absolutely; Predicate adjective: divine",
+                  "Linking verb: divine; Predicate noun:flowers"],
+        answer: "Linking verb: smell; Predicate adjective:divine"    
+      },
+
+      {
+        questionNo: "Q10.",
+        question: " In the sentence below what kind of a verb is <b> felt </b>? <br> The dog’s fur felt soft.",
+        options: ["Main verb" , "Linking verb" , "Sensory verb functioning as Linking Verb" , "All of the above"],
+        answer: "All of the above"
+      },
+
+      
+      {
+        questionNo: "Q11.",
+        question: " It appeared to be fake. <br> How is “to be fake” functioning in the above statement?",
+        options: ["Subject Complement", "Predicate Adjective","Adjective","Both A and B"],
+
+        answer: "Both A and B"
+      },
+
+      {
+        questionNo: "Q12.",
+        question: " That famous actor appeared elegant on the red carpet.<br> What is the adjective complement in the above sentence?",
+        options: ["elegant","famous","appeared","elegant on the red carpet"],
+        answer: "elegant on the red carpet"
+      },
+      {
+        questionNo: "Q13.",
+        question: " Nathan becomes embarrassed while he is complimented. <br> Identify the subject complement.",
+        options: ["embarrassed while he is complimented",
+                  "embarrassed",
+                  "becomes",
+                  "becomes embarrassed" ],
+        answer: "embarrassed while he is complimented"
+      },
+
+      {
+        questionNo: "Q14.",
+        question: " Select the linking verb and the predicate noun or predicate adjective. <br> My little cousin has grown into a responsible adult.",
+        options: ["Linking verb: has grown; Predicate noun: a responsible adult",
+                  "Linking verb: cousin; Predicate adjective: little",
+                  "Linking verb: grown; Predicate adjective: responsible",
+                  "Linking verb: responsible; Predicate noun: adult"],
+        answer: "Linking verb: has grown; Predicate noun: a responsible adult"
+      },
+
+      {
+        questionNo: "Q15.",
+        question: " The experiment proved successful. <br> “Prove” in the above sentence is a/an:",
+        options: ["Transitive verb", "Linking verb",  "Action verb",  "Intransitive verb"],
+        answer: "Linking verb"
+      },
+
+      {
+        questionNo: "Q16.",
+        question: " The grass turned yellow. <br> “Turned” in the above sentence is a/an:",
+        options: ["Intransitive verb","Action verb","Linking verb","Transitive verb"],
+        answer: "Linking verb"
+      },
+
+      {
+        questionNo: "Q17.",
+        question: " Noun phrases and Adjective Phrases can also be Subject complements?",
+        options: ["True", "False"],
+        answer: "True"
+      },
+
+      {
+        questionNo: "Q18.",
+        question: " The porridge tastes salty! <br> In the above sentence, “salty” is:",
+        options: ["Adjective", "Predicate Nominative","Subject complement","Both A and B"],
+        answer: "Subject complement"
+      },
+
+      {
+        questionNo: "Q19.",
+        question: " I am an Indian and I live in America. <br> Are there two linking verbs in the above sentence ?",
+        options: ["Yes", "no"],
+        answer: "no"
+      },
+
+      {
+        questionNo: "Q20.",
+        question: " Can I taste the soup? Here, “Taste” is:",
+        options: ["Linking verb", "Helping verb","Action Verb","None of the above"],
+        answer: "Action Verb"
+      },
+
+      {
+        questionNo: "Q21.",
+        question: " Is he awake? Here, “is” is a:",
+        options: ["Linking verb","Ditransitive verb","Action verb","None of the above"],
+        answer: "Linking verb"
+      },
+
+      {
+        questionNo: "Q22.",
+        question: " 1) Linking verbs can be the main verb of a sentence. <br> 2) Linking verbs are action verbs",
+        options: ["Only 1) is correct",
+                  "Both 1) and 2) are correct",
+                  "Only 2) is correct",
+                  "Both 1) and 2) are incorrect."],
+        answer: "Only 1) is correct"
+      },
+
+      {
+        questionNo: "Q23.",
+        question: " Express your ideas clearly. Does the above sentence contain a linking verb?",
+        options: ["Yes",
+                  "No"],
+        answer: "No"
+      },
+
+      {
+        questionNo: "Q24.",
+        question: " Joe:“How are you ? Sara: “I am good’.” <br> In the above conversation between Sara and Joe, what are the verbs and their types used?",
+        options: ["Are, am - Linking verbs","Are, am - Be Verbs","Are, am - Main Verbs","All of the above"],
+        answer: "All of the above"
+      },
+
+      {
+        questionNo: "Q25.",
+        question: " I have one ice cream in the freezer and I am having one now. <br> Which is the linking verb in the above sentence?",
+        options: ["Have","Having"],
+        answer: "Have"
+      },      
+      // Add more questions here
+    ];
+
+    //define the array of images
+
+    var img= ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg", "17.jpg", "18.jpg", "19.gif", "20.jpg", "21.jpg", "22.jpg", "23.jpg", "24.jpg", "25.jpg", "26.jpg"]
+    
+    // Get a random question from the array
+
+    var randomQuestion = questions[0];
+    var updatedimage = img[0]
+    document.getElementById("math_ques").src = updatedimage
+    document.getElementById("numdiv").innerHTML = randomQuestion.questionNo;
+    document.getElementById("question").innerHTML = randomQuestion.question;
+    
+    randomQuestion.options.forEach(function(option) {
+      var li = document.createElement("li");
+      li.innerHTML = '<input type="radio" name="answer" value="' + option + '"> ' + option;
+      document.getElementById("options").appendChild(li);
+    });
+
+// Create a function here like family array project of Byjus to display next question \
+    // from array everytime instead of random question
+    var i=1;
+    var count=questions.length
+    function newques(){
+      if(i==count){
+        document.getElementById("heading").innerHTML = "Thank You...."
+        document.getElementById("math_ques").src = "last.jpg"
+        document.getElementById("question").innerHTML=""
+        document.getElementById("options").innerHTML="Well Done"
+        document.getElementById("cheers").play()
+        document.getElementById("result").innerHTML ="You have completed the chapter of Verbs"
+      document.getElementById("nextbtn").style.display="none"
+      }
+      else{
+
+      document.getElementById("options").innerHTML=""
+      document.getElementById("result").innerHTML =""
+      
+  
+      updatedimage= img[i]
+      document.getElementById("math_ques").src = updatedimage
+
+// Display the question and options on the page
+      randomQuestion = questions[i];    
+      document.getElementById("numdiv").innerHTML = randomQuestion.questionNo;
+    document.getElementById("question").innerHTML = randomQuestion.question;
+    
+    
+    randomQuestion.options.forEach(function(option) {
+      var li = document.createElement("li");
+      li.innerHTML = '<input type="radio" name="answer" value="' + option + '"> ' + option;
+      document.getElementById("options").appendChild(li);
+    });
+    document.getElementById("subbtn").style.display="inline-block"
+        document.getElementById("nextbtn").style.display="none"
+
+    i++;
+    }
+  }
+    
+    
+    // Check the selected answer against the correct answer
+    function checkAnswer() {
+      var selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
+      if (selectedAnswer === randomQuestion.answer) {
+        document.getElementById("result").innerHTML = "Good Job! &#128512" ;
+        document.getElementById("points").play();
+        document.getElementById("subbtn").style.display="none"
+        document.getElementById("nextbtn").style.display="inline-block"
+      } else {
+        document.getElementById("result").innerHTML = "Try Again! 😎";
+        document.getElementById("fail").play();
+      }
+    }
+
+
+    function abc(x){
+      i=x-1
+      document.getElementById("options").innerHTML=""
+      document.getElementById("result").innerHTML =""
+      
+  
+      updatedimage= img[i]
+      document.getElementById("math_ques").src = updatedimage
+
+// Display the question and options on the page
+      randomQuestion = questions[i];    
+      document.getElementById("numdiv").innerHTML = randomQuestion.questionNo;
+    document.getElementById("question").innerHTML = randomQuestion.question;
+    
+    
+    randomQuestion.options.forEach(function(option) {
+      var li = document.createElement("li");
+      li.innerHTML = '<input type="radio" name="answer" value="' + option + '"> ' + option;
+      document.getElementById("options").appendChild(li);
+    });
+    document.getElementById("subbtn").style.display="inline-block"
+        document.getElementById("nextbtn").style.display="none"
+
+    i++;
+    }
+    
+  </script>
+</center>
+</body>
+</html>
